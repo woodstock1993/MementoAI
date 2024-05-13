@@ -1,0 +1,27 @@
+#.env
+*.db
+.idea
+.ipynb_checkpoints
+.mypy_cache
+.vscode
+__pycache__
+.pytest_cache
+site
+.coverage
+coverage.xml
+test.db
+log.txt
+Pipfile.lock
+env3.*
+env
+docs_build
+site_build
+venv
+
+
+# vim temporary files
+*~
+.cache
+
+# macOS
+.DS_Store
