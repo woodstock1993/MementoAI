@@ -18,9 +18,9 @@ def create_short_url(db: Session, url: schemas.URLBase) -> models.URL:
     db.refresh(obj_url)
     return obj_url
 
-def create_expiration_date(expiration_days: int) -> datetime:
+def create_expiration_date(expiration_seconds: int) -> datetime:
     current_date = datetime.now()
-    return current_date + timedelta(seconds=expiration_days)
+    return current_date + timedelta(seconds=expiration_seconds)
 
 def get_short_url(db: Session, key: str) -> models.URL:
     return db.query(models.URL).filter(models.URL.key==key, models.URL.is_active).first()
