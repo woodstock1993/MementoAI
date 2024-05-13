@@ -36,8 +36,7 @@ def create_url(url: schemas.URLBase, db: Session = Depends(get_db)):
 
 
 @app.get("/{key}", status_code=301)
-def get_forward(key: str, request: Request, db: Session = Depends(get_db)):
-    import requests
+def get_forward(key: str, request: Request, db: Session = Depends(get_db)):    
     """
     원본 URL을 기반으로 생성된 key로 조회시 원본 URL로 redirect 합니다.
     key가 존재하지 않을 경우 404를 Response 합니다
