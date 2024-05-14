@@ -4,7 +4,7 @@ import string
 from sqlalchemy.orm import Session
 from app.crud import crud
 
-def gen_key(length: int=6) -> str:
+def gen_key(length: int=9) -> str:
     candidates = string.ascii_uppercase + string.digits
     return "".join(secrets.choice(candidates) for _ in range(length))
 

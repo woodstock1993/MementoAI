@@ -10,7 +10,7 @@ from ..utils import gen
 
 def create_short_url(db: Session, url: schemas.URLBase) -> models.URL:
     key = gen.create_unique_key(db)
-    secret_key = f"{key}_{gen.gen_key(length=8)}"
+    secret_key = f"{key}_{gen.gen_key(length=9)}"
     exp_date = create_expiration_date(5)
     if url.expiration_date is not None:
         exp_date = url.expiration_date

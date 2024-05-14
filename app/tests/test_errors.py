@@ -1,6 +1,6 @@
 from fastapi import HTTPException, Request
-from unittest.mock import MagicMock
 import pytest
+from unittest.mock import MagicMock
 
 from app.errors.errors import raise_400_url, raise_url_404, raise_key_400
 

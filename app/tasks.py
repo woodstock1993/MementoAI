@@ -1,11 +1,10 @@
 from datetime import datetime
 
 from celery import Celery
-
 from sqlalchemy.orm import Session
 
-from .models import models
 from celeryconfig import *
+from .models import models
 
 celery = Celery('tasks', broker=CELERY_BROKER_URL, backend=CELERY_RESULT_BACKEND)
 celery.config_from_object('celeryconfig')
