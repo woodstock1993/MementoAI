@@ -1,7 +1,10 @@
+from typing import Optional
+from datetime import datetime
 from pydantic import BaseModel
 
 class URLBase(BaseModel):
     original_url: str
+    expiration_date: Optional[datetime] = None
 
 class URL(URLBase):
     is_active: bool

@@ -12,6 +12,8 @@ def create_short_url(db: Session, url: schemas.URLBase) -> models.URL:
     key = gen.create_unique_key(db)
     secret_key = f"{key}_{gen.gen_key(length=8)}"
     exp_date = create_expiration_date(5)
+    if url.expiration_date is not None:
+        exp_date = url.expiration_date
     obj_url = models.URL(original_url=url.original_url, key=key, secret_key=secret_key, expiration_date=exp_date)    
     db.add(obj_url)
     db.commit()
