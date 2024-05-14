@@ -91,9 +91,36 @@
     
     2번
     (test_crud.py test_errors.py, test_utils.py)
+    test_utils.py의 테스트 코드의 경우 Key가 중복 없이 얼마나 생성될 수 있는지 확인하기 위해 500만번 정도 호출하여
+    시간이 길어질 수 있습니다.
 
     3번
     (test_celery.py)
+
+    ============================== 13 passed, 4 warnings in 102.24s (0:01:42) ===============================
+    (venv) ➜  MementoAI git:(main) ✗ coverage report       
+    Name                        Stmts   Miss  Cover
+    -----------------------------------------------
+    app/__init__.py                 0      0   100%
+    app/common/config.py           11      0   100%
+    app/crud/crud.py               24      0   100%
+    app/databases/database.py       7      0   100%
+    app/errors/errors.py            9      0   100%
+    app/main.py                    36      6    83%
+    app/models/models.py           11      0   100%
+    app/schemas/schemas.py         16      0   100%
+    app/tasks.py                   27     18    33%
+    app/tests/__init__.py           0      0   100%
+    app/tests/test_api.py          41      0   100%
+    app/tests/test_celery.py       20      0   100%
+    app/tests/test_crud.py         25      0   100%
+    app/tests/test_errors.py       24      0   100%
+    app/tests/test_utils.py        15      0   100%
+    app/tests/utils.py              7      0   100%
+    app/utils/gen.py               12      1    92%
+    celeryconfig.py                 8      0   100%
+    -----------------------------------------------
+    TOTAL                         293     25    91%
 
 
 ### 데이터베이스 선택 이유
@@ -106,9 +133,9 @@
 
 ### 실행 방법
 
-    # 루트 디렉토리에 start.sh 스크립트 파일이 있습니다.
+    # 루트 디렉토리에 main.sh 스크립트 파일이 있습니다.
     
-    # 해당 파일을 bash ./start.sh로 실행 시 아래와 같은 순서로 파일을 실행합니다.
+    # 해당 파일을 bash ./main.sh로 실행 시 아래와 같은 순서로 파일을 실행합니다.
 
     # 도커를 이용하여 redis 컨테이너를 로컬 환경에서 구동시키기 때문에 도커가 설치 및 실행중인 상태이어야 합니다.
 
@@ -119,3 +146,5 @@
     5. Fast API 서버 실행
     6. Celery 실행
     7. pytest 실행
+
+    # 도커를 제외한 실행은 bash ./sub.sh로 실행시킬 수 있습니다.
